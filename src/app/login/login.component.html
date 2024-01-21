@@ -1,0 +1,106 @@
+<ngx-spinner bgColor="rgba(51,51,51,0.8)" size="medium" color="#1fed83" type="ball-triangle-path">
+    <p style="font-size: 2opx; color: white;">Loading...</p>
+</ngx-spinner>
+
+<div class="login-page bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="bg-white shadow rounded-end">
+                    <div class="row align-items-center ">
+                        <div class="col-md-6 pe-0">
+                            <div class="form-left bg-success rounded-start h-100 py-5 px-5">
+
+
+                                <form action="" class="row g-4" [formGroup]="loginForm" (ngSubmit)="loginsubmited()">
+
+
+                                    <div class="col-12">
+                                        <label class="text-white">Email</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
+                                            <input type="text" class="form-control" placeholder="Enter Email"
+                                                formControlName="email">
+                                        </div>
+
+                                        <!-- for error displaying  -->
+                                        <div class="form-text error-message"
+                                            *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
+                                            Email is Required
+                                        </div>
+                                        <div class="form-text error-message"
+                                            *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">
+                                            Email is Invalid
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <label class="text-white">Password</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
+                                            <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control"
+                                                placeholder="Enter Password" formControlName="pwd" autocomplete>
+                                            <span class="input-group-text">
+                                                <i class="bi {{ showPassword ? 'bi-eye-slash' : 'bi-eye' }}"
+                                                    (click)="togglePasswordVisibility()"></i>
+                                            </span>
+                                        </div>
+
+                                        <!-- for error displaying  -->
+                                        <div class="form-text error-message"
+                                            *ngIf="PWD.errors?.['required'] && (PWD.dirty || PWD.touched)">
+                                            Password is required
+                                        </div>
+                                        <div class="form-text  error-message"
+                                            *ngIf="PWD.errors?.['minlength'] && (PWD.dirty || PWD.touched)">
+                                            Password should be atleast 6 characters
+                                        </div>
+                                        <div class="form-text error-message"
+                                            *ngIf="PWD.errors?.['maxlength'] && (PWD.dirty || PWD.touched)">
+                                            Password is very Long
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- <div class="col-sm-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+                                            <label class="form-check-label text-white " for="inlineFormCheck">Remember
+                                                me</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <a href="#" class="float-end text-white ">Forgot Password?</a>
+                                    </div> -->
+
+                                    <div class="col-12">
+                                        <!-- <a (click)="loginsubmited()" class="btn btn-light px-4 float-end mt-4 ">Login</a> -->
+                                        <button type="submit" class="btn btn-light px-4 float-end mt-4 " [disabled]="loginForm.invalid">Login</button>
+                                    </div>
+                                </form>
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 ps-0 d-none d-md-block">
+                            <div class="form-right h-100 text-center">
+                                <h4 class="text-success">Welcome to</h4>
+                                <div class="login_logo">
+                                    <img src="assets/logoparc.png" class="" alt="">
+                                </div>
+                                <div class="text-success">
+                                    <h2 class="">PARC CLOUDHUB</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

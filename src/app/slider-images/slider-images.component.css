@@ -1,0 +1,11 @@
+.close
+{
+    font-weight: 700;
+    /* background-color: border-box; */
+    color: white;
+    font-size: 33px;
+    width: 50px;
+    border: none;
+    background: none;
+
+}
